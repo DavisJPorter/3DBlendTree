@@ -28,6 +28,9 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetFloat( "Velocity", player.getVelocity() );
         Debug.Log(player.getVelocity());
 
-
+        if (Input.GetKeyDown(KeyCode.V))
+            animator.Play("TwistDance");
+        if (Input.GetKeyUp(KeyCode.V))
+            animator.Play("Blend Tree");
     }
 }

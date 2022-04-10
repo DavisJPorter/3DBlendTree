@@ -8,7 +8,7 @@ public enum MovementMode { Walking, Running, Sprinting, Crouching, Proning }
 public class PlayerMovement : MonoBehaviour
 {
     public Transform t_mesh;
-    public float maxSpeed = 5.0f;
+    public float maxSpeed = 3.0f;
     private float smoothSpeed;
     private float rotationSpeed = 10.0f;
 
@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();          //initialize rigibody reference
+        maxSpeed = 3.0f;
     }
 
     void Update()
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case MovementMode.Walking:
                 {
-                    maxSpeed = 5.0f;
+                    maxSpeed = 3.0f;
                     break;
                 }   
             case MovementMode.Running:
