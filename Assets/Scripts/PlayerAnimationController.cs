@@ -9,7 +9,9 @@ public class PlayerAnimationController : MonoBehaviour
 
     public Animator animator;
     private Player player;
-    
+    public AudioSource audioSource;
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,18 @@ public class PlayerAnimationController : MonoBehaviour
 
         animator.SetFloat( "Velocity", player.getVelocity() );
         Debug.Log(player.getVelocity());
+        Emote();
+    }
 
+    void Emote()
+    {
         if (Input.GetKeyDown(KeyCode.V))
             animator.Play("TwistDance");
+        if (Input.GetKeyDown(KeyCode.V))
+            audioSource.PlayOneShot(clip);
         if (Input.GetKeyUp(KeyCode.V))
             animator.Play("Blend Tree");
+        if (Input.GetKeyUp(KeyCode.V))
+            audioSource.Stop();
     }
 }

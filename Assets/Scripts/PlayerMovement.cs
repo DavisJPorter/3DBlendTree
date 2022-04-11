@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         {
             smoothSpeed = Mathf.Lerp(maxSpeed, smoothSpeed, Time.deltaTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+            maxSpeed = 0.0f;
+        if (Input.GetKeyUp(KeyCode.V))
+            maxSpeed = 3.0f;
     }
 
     public Vector3 Velocity { get => rigidbody.velocity; set => velocity = value; }
